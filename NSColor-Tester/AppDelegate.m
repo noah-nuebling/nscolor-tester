@@ -50,7 +50,10 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
-    const NSArray *colors = @[
+    #define xxx(color) \
+        @{ @"name": @#color , @"value": color }
+
+    const NSArray <NSDictionary <NSString *, id> *> *colors = @[
         
         /// "Standard" colors
 //        NSColor.blackColor,
@@ -71,102 +74,102 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
         
         
         /// Foreground colors
-        NSColor.labelColor,
-        NSColor.secondaryLabelColor,
-        NSColor.tertiaryLabelColor,
-        NSColor.quaternaryLabelColor,
-        NSColor.quinaryLabelColor,
-        NSColor.linkColor,
-        NSColor.placeholderTextColor,
-        NSColor.windowFrameTextColor,
-        NSColor.selectedMenuItemTextColor,
-        NSColor.alternateSelectedControlTextColor,
-        NSColor.headerTextColor,
-        NSColor.separatorColor,
-        NSColor.gridColor,
-        NSNull.null,
+        xxx(NSColor.labelColor),
+        xxx(NSColor.secondaryLabelColor),
+        xxx(NSColor.tertiaryLabelColor),
+        xxx(NSColor.quaternaryLabelColor),
+        xxx(NSColor.quinaryLabelColor),
+        xxx(NSColor.linkColor),
+        xxx(NSColor.placeholderTextColor),
+        xxx(NSColor.windowFrameTextColor),
+        xxx(NSColor.selectedMenuItemTextColor),
+        xxx(NSColor.alternateSelectedControlTextColor),
+        xxx(NSColor.headerTextColor),
+        xxx(NSColor.separatorColor),
+        xxx(NSColor.gridColor),
+        xxx(NSNull.null),
         
         /// Background colors
-        NSColor.windowBackgroundColor,
-        NSColor.underPageBackgroundColor,
-        NSColor.controlBackgroundColor,
-        NSColor.selectedContentBackgroundColor,
-        NSColor.unemphasizedSelectedContentBackgroundColor,
-        NSColor.alternatingContentBackgroundColors[0],
-        NSColor.alternatingContentBackgroundColors[1],
-        NSColor.findHighlightColor,
-        NSNull.null,
+        xxx(NSColor.windowBackgroundColor),
+        xxx(NSColor.underPageBackgroundColor),
+        xxx(NSColor.controlBackgroundColor),
+        xxx(NSColor.selectedContentBackgroundColor),
+        xxx(NSColor.unemphasizedSelectedContentBackgroundColor),
+        xxx(NSColor.alternatingContentBackgroundColors[0]),
+        xxx(NSColor.alternatingContentBackgroundColors[1]),
+        xxx(NSColor.findHighlightColor),
+        xxx(NSNull.null),
         
         /// Text colors
-        NSColor.textColor,
-        NSColor.textBackgroundColor,
-        NSColor.textInsertionPointColor,
-        NSColor.selectedTextColor,
-        NSColor.selectedTextBackgroundColor,
-        NSColor.unemphasizedSelectedTextBackgroundColor,
-        NSColor.unemphasizedSelectedTextColor,
-        NSNull.null,
+        xxx(NSColor.textColor),
+        xxx(NSColor.textBackgroundColor),
+        xxx(NSColor.textInsertionPointColor),
+        xxx(NSColor.selectedTextColor),
+        xxx(NSColor.selectedTextBackgroundColor),
+        xxx(NSColor.unemphasizedSelectedTextBackgroundColor),
+        xxx(NSColor.unemphasizedSelectedTextColor),
+        xxx(NSNull.null),
         
         /// Control colors
-        NSColor.controlColor,
-        NSColor.controlTextColor,
-        NSColor.selectedControlColor,
-        NSColor.selectedControlTextColor,
-        NSColor.disabledControlTextColor,
-        NSColor.keyboardFocusIndicatorColor,
-        NSColor.scrubberTexturedBackgroundColor,
-        NSNull.null,
+        xxx(NSColor.controlColor),
+        xxx(NSColor.controlTextColor),
+        xxx(NSColor.selectedControlColor),
+        xxx(NSColor.selectedControlTextColor),
+        xxx(NSColor.disabledControlTextColor),
+        xxx(NSColor.keyboardFocusIndicatorColor),
+        xxx(NSColor.scrubberTexturedBackgroundColor),
+        xxx(NSNull.null),
 
         /// System colors
-        NSColor.systemRedColor,
-        NSColor.systemGreenColor,
-        NSColor.systemBlueColor,
-        NSColor.systemOrangeColor,
-        NSColor.systemYellowColor,
-        NSColor.systemBrownColor,
-        NSColor.systemPinkColor,
-        NSColor.systemPurpleColor,
-        NSColor.systemGrayColor,
-        NSColor.systemTealColor,
-        NSColor.systemIndigoColor,
-        NSColor.systemMintColor,
-        NSColor.systemCyanColor,
-        NSNull.null,
+        xxx(NSColor.systemRedColor),
+        xxx(NSColor.systemGreenColor),
+        xxx(NSColor.systemBlueColor),
+        xxx(NSColor.systemOrangeColor),
+        xxx(NSColor.systemYellowColor),
+        xxx(NSColor.systemBrownColor),
+        xxx(NSColor.systemPinkColor),
+        xxx(NSColor.systemPurpleColor),
+        xxx(NSColor.systemGrayColor),
+        xxx(NSColor.systemTealColor),
+        xxx(NSColor.systemIndigoColor),
+        xxx(NSColor.systemMintColor),
+        xxx(NSColor.systemCyanColor),
+        xxx(NSNull.null),
         
         /// Fill colors for UI elements
-        NSColor.systemFillColor,
-        NSColor.secondarySystemFillColor,
-        NSColor.tertiarySystemFillColor,
-        NSColor.quaternarySystemFillColor,
-        NSColor.quinarySystemFillColor,
-        NSColor.controlAccentColor,
+        xxx(NSColor.systemFillColor),
+        xxx(NSColor.secondarySystemFillColor),
+        xxx(NSColor.tertiarySystemFillColor),
+        xxx(NSColor.quaternarySystemFillColor),
+        xxx(NSColor.quinarySystemFillColor),
+        xxx(NSColor.controlAccentColor),
         //NSControlTint currentControlTint;
         //colorForControlTint:
-        NSColor.highlightColor,
-        NSColor.shadowColor,
+        xxx(NSColor.highlightColor),
+        xxx(NSColor.shadowColor),
         //[[NSColor alloc] highlightWithLevel: 0],
         //[[NSColor alloc] shadowWithLevel: 0],
-        NSNull.null,
+        xxx(NSNull.null),
         
         /// Deprecated
-        NSColor.controlHighlightColor,
-        NSColor.controlLightHighlightColor,
-        NSColor.controlShadowColor,
-        NSColor.controlDarkShadowColor,
+        xxx(NSColor.controlHighlightColor),
+        xxx(NSColor.controlLightHighlightColor),
+        xxx(NSColor.controlShadowColor),
+        xxx(NSColor.controlDarkShadowColor),
 
-        NSColor.scrollBarColor,
-        NSColor.knobColor,
-        NSColor.selectedKnobColor,
+        xxx(NSColor.scrollBarColor),
+        xxx(NSColor.knobColor),
+        xxx(NSColor.selectedKnobColor),
 
-        NSColor.windowFrameColor,
-        NSColor.selectedMenuItemColor,
-        NSColor.headerColor,
+        xxx(NSColor.windowFrameColor),
+        xxx(NSColor.selectedMenuItemColor),
+        xxx(NSColor.headerColor),
 
-        NSColor.secondarySelectedControlColor,
-        NSColor.alternateSelectedControlColor,
-        NSColor.controlAlternatingRowBackgroundColors[0],
-        NSColor.controlAlternatingRowBackgroundColors[1],
-        NSNull.null,
+        xxx(NSColor.secondarySelectedControlColor),
+        xxx(NSColor.alternateSelectedControlColor),
+        xxx(NSColor.controlAlternatingRowBackgroundColors[0]),
+        xxx(NSColor.controlAlternatingRowBackgroundColors[1]),
+        xxx(NSNull.null),
     ];
 
     
@@ -179,19 +182,19 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
         for (int i = 0; i < colors.count; i++) {
             
             NSMenuItem *item = nil;
-            if (colors[i] == NSNull.null) {
+            if (colors[i][@"value"] == NSNull.null) {
                 item = NSMenuItem.separatorItem;
             }
             else {
-                NSColor *color = colors[i];
+                NSColor *color = colors[i][@"value"];
                 color = [color colorUsingType: NSColorTypeCatalog];
             
                 item = [[NSMenuItem alloc] init];
-                NSString *identifier = [NSString stringWithFormat: @"%@ (%@)", color.colorNameComponent, color.catalogNameComponent];
+                NSString *identifier = colors[i][@"name"];
                 item.title = identifier;
                 item.identifier = identifier;
                 
-                item.representedObject = color;
+                item.representedObject = colors[i];
             }
             
             [_pbbutton_fillColor.menu   addItem: item];
@@ -202,12 +205,9 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
         
         #define linkcolor(object_, property_, pbutton_) \
             [(pbutton_) mf_observeUsingAction: mfkp((pbutton_), selectedItem.representedObject) block:^(id  _Nonnull newValue) { \
-                object_.property_ = newValue; \
+                object_.property_ = newValue[@"value"]; \
             }]; \
-            [object_ mf_observe: mfkp(object_, property_) block:^(id  _Nonnull newValue) { \
-                [(pbutton_) selectItemWithRepresentedObject: newValue]; \
-            }] \
-            
+        
         linkcolor(self.box, fillColor, self.pbbutton_fillColor);
         linkcolor(self.box, borderColor, self.pbutton_borderColor);
         linkcolor(self.text, textColor, self.pbutton_textColor);
