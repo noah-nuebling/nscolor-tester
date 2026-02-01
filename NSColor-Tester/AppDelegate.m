@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "MFObserver.h"
 #import "MFTargetActionObserver.h"
+#import "ColorDescriptionDisplay.h"
 
 @implementation NSPopUpButton (Additions)
 
@@ -30,8 +31,11 @@
     @property (weak) IBOutlet NSTextField *text;
 
     @property (weak) IBOutlet NSPopUpButton *pbutton_borderColor;
+    @property (weak) IBOutlet ColorDescriptionDisplay *colorDescriptionDisplay_borderColor;
     @property (weak) IBOutlet NSPopUpButton *pbbutton_fillColor;
+    @property (weak) IBOutlet ColorDescriptionDisplay *colorDescriptionDisplay_fillColor;
     @property (weak) IBOutlet NSPopUpButton *pbutton_textColor;
+    @property (weak) IBOutlet ColorDescriptionDisplay *colorDescriptionDisplay_textColor;
     @property (weak) IBOutlet NSTextField *display_borderWidth;
     @property (weak) IBOutlet NSSlider *slider_borderWidth;
 
@@ -49,9 +53,9 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
+    
     #define xxx(color) \
-        @{ @"name": @#color , @"value": color }
+        @{ @"name": [@#color substringFromIndex: @"NSColor.".length], @"value": color }
 
     const NSArray <NSDictionary <NSString *, id> *> *colors = @[
         
@@ -208,9 +212,13 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
                 object_.property_ = newValue[@"value"]; \
             }]; \
         
-        linkcolor(self.box, fillColor, self.pbbutton_fillColor);
-        linkcolor(self.box, borderColor, self.pbutton_borderColor);
-        linkcolor(self.text, textColor, self.pbutton_textColor);
+        linkcolor(self.box,  fillColor,   self.pbbutton_fillColor);
+        linkcolor(self.box,  borderColor, self.pbutton_borderColor);
+        linkcolor(self.text, textColor,   self.pbutton_textColor);
+        
+        linkcolor(self.colorDescriptionDisplay_fillColor,    color,   self.pbbutton_fillColor);
+        linkcolor(self.colorDescriptionDisplay_borderColor,  color,   self.pbutton_borderColor);
+        linkcolor(self.colorDescriptionDisplay_textColor,    color,   self.pbutton_textColor);
         
         #undef linkcolor
         
@@ -222,7 +230,7 @@ double _mfscale(double x, double from_0, double from_1, double to_0, double to_1
             self.box.borderWidth = newBorderWidth;
             [self.display_borderWidth setStringValue: [NSString stringWithFormat: @"%.1f px", newBorderWidth]];
         }];
-        [self.box mf_observe: mfkp(self.box, borderWidth) block:^(id  _Nonnull newValue) {
+        [self.box mf_observe: mfkp(self.box,borderWidth) block: ^(id  _Nonnull newValue) {
             [self.slider_borderWidth setDoubleValue: mfscale([newValue doubleValue], (borderWidthMin, borderWidthMax), (0, 1))];
         }];
         

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24093.9" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24412" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24093.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24412"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +15,9 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="box" destination="kQI-GD-su8" id="aPI-e8-3OF"/>
+                <outlet property="colorDescriptionDisplay_borderColor" destination="bXN-nX-YPP" id="ReC-0b-ySZ"/>
+                <outlet property="colorDescriptionDisplay_fillColor" destination="oCY-JT-VBE" id="TiX-5c-ddF"/>
+                <outlet property="colorDescriptionDisplay_textColor" destination="6yg-0z-rvj" id="jYX-yA-3gT"/>
                 <outlet property="display_borderWidth" destination="B0g-gV-Uzr" id="ztu-Pm-bl6"/>
                 <outlet property="pbbutton_fillColor" destination="eAS-6J-cCR" id="Cx6-ZB-xa5"/>
                 <outlet property="pbutton_borderColor" destination="OjR-PA-SuR" id="9vL-Rq-Hvs"/>
@@ -690,10 +693,10 @@
         <window title="NSColor-Tester" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="869"/>
+            <rect key="contentRect" x="335" y="390" width="647" height="360"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1409"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="647" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAS-6J-cCR">
@@ -812,13 +815,41 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCY-JT-VBE" customClass="ColorDescriptionDisplay">
+                        <rect key="frame" x="419" y="327" width="133" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="lvt-Vz-bEc">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXN-nX-YPP" customClass="ColorDescriptionDisplay">
+                        <rect key="frame" x="419" y="299" width="133" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="dhj-37-aSo">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-0z-rvj" customClass="ColorDescriptionDisplay">
+                        <rect key="frame" x="419" y="246" width="133" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gu1-Oa-WKm">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="top-28-M4D"/>
             </connections>
-            <point key="canvasLocation" x="200" y="400"/>
+            <point key="canvasLocation" x="283.5" y="400"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="B3Y-9f-6KR"/>
+        <customObject id="08h-Mv-Fu4"/>
     </objects>
 </document>
